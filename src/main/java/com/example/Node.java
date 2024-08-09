@@ -1,6 +1,10 @@
 package com.example;
 
 public class Node {
+    @Override
+    public String toString() {
+        return "(" + value + ":" + key + ")";
+    }
 
     private final Integer key;
     private Integer value;
@@ -35,8 +39,4 @@ public class Node {
         return next != null;
     }
 
-    @Override
-    public String toString() {
-        return key + " : " + value;
-    }
 }

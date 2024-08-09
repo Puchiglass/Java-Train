@@ -11,6 +11,26 @@ public class MyHashMap implements MyMap {
 
     private final int MAX_BUCKET_SIZE = 5;
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("MyHashMap {");
+        for (Node node : buckets) {
+            if (node == null) {
+                continue;
+            }
+            sb.append(node);
+            while (node.hasNext()) {
+                node = node.getNext();
+                sb.append(", ").append(node);
+            }
+            sb.append(", ");
+        }
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("}");
+        return sb.toString();
+    }
+
     public MyHashMap() {
         buckets = new Node[INITIAL_SIZE];
     }
